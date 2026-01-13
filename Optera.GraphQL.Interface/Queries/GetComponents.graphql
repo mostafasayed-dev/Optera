@@ -1,0 +1,21 @@
+﻿query ($userParams: UserParamsInput!) {
+              components(userParams: $userParams) {
+                success
+                status
+                result {
+                  name
+                  title
+                  creator
+                  updator
+                  creatorObject {
+                    id
+                    username
+                    email
+                    emailConfirmed
+                    locked
+                  }
+                }
+                title
+                message
+              }
+            }

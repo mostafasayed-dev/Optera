@@ -1,0 +1,6 @@
+@Optera_HostAddress = http://localhost:5057
+
+GET {{Optera_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

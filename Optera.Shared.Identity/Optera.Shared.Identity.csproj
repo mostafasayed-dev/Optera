@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>Optera.Shared.Identity</PackageId>
+    <Version>1.1.0</Version>
+    <Authors>Optera</Authors>
+    <Company>Optera</Company>
+    <Description>Optera identity accessor.</Description>
+    <RepositoryUrl>https://github.com/your-repo-url</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.3.0" />
+  </ItemGroup>
+	
+  <Target Name="CopyNugetToLocalFeed" AfterTargets="Pack">
+    <PropertyGroup>
+        <LocalFeed>..\..\Optera\NuGet</LocalFeed>
+    </PropertyGroup>
+    <MakeDir Directories="$(LocalFeed)" Condition="!Exists('$(LocalFeed)')" />
+    <ItemGroup>
+        <NuPkgFiles Include="$(PackageOutputPath)Optera.Shared.Identity.*.nupkg" />
+    </ItemGroup>
+    <Copy SourceFiles="@(NuPkgFiles)" DestinationFolder="$(LocalFeed)" SkipUnchangedFiles="true" Condition="Exists('%(NuPkgFiles.Identity)')" />
+  </Target>
+
+</Project>

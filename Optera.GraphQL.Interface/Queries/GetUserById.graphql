@@ -1,0 +1,14 @@
+﻿query ($id: String!) {
+              userById(id: $id) {
+                success
+                status
+                result {
+                  id
+                  username
+                  email
+                  emailConfirmed
+                }
+                title
+                message
+              }
+            }

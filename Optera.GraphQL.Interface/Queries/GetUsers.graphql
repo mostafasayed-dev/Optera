@@ -1,0 +1,14 @@
+﻿query ($userParams: UserParamsInput!) {
+              users(userParams: $userParams) {
+                success
+                status
+                result {
+                  id
+                  username
+                  email
+                  emailConfirmed
+                }
+                title
+                message
+              }
+            }

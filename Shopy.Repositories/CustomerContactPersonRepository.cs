@@ -1,0 +1,26 @@
+﻿using Microsoft.AspNetCore.Http;
+using Optera.DataAccess;
+using Optera.Infrastructure.Interfaces;
+using Optera.Models;
+using Optera.Repositories.Base;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Optera.Repositories
+{
+    public class CustomerContactPersonRepository : BaseRepository<CustomerContactPerson>, ICustomerContactPersonRepository
+    {
+        public CustomerContactPersonRepository(DBContext context, IHttpContextAccessor httpContextAccessor) : base(context, httpContextAccessor)
+        {
+        }
+
+        public void AddCustomerContactPerson(ICollection<CustomerContactPerson> customerContacts)
+        {
+            if (customerContacts == null)
+                return;
+
+            AddRange(customerContacts);
+        }
+    }
+}

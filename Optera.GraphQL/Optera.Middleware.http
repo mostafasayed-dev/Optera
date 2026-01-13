@@ -1,0 +1,6 @@
+@Optera.GraphQL_HostAddress = http://localhost:5214
+
+GET {{Optera.GraphQL_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

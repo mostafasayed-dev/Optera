@@ -1,0 +1,6 @@
+@Optera.Configuration_HostAddress = http://localhost:5219
+
+GET {{Optera.Configuration_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

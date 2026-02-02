@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Optera.Shared.Core.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;

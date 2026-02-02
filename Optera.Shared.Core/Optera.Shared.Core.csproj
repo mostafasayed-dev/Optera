@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>Optera.Shared.Core</PackageId>
+    <Version>1.1.6</Version>
+    <Authors>Optera</Authors>
+    <Company>Optera</Company>
+    <Description>Optera shared Repo.</Description>
+    <RepositoryUrl>https://github.com/your-repo-url</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+
+	<Target Name="CopyNugetToLocalFeed" AfterTargets="Pack">
+		<PropertyGroup>
+			<LocalFeed>..\..\Optera\NuGet</LocalFeed>
+		</PropertyGroup>
+		<MakeDir Directories="$(LocalFeed)" Condition="!Exists('$(LocalFeed)')" />
+		<ItemGroup>
+			<NuPkgFiles Include="$(PackageOutputPath)Optera.Shared.Core.*.nupkg" />
+		</ItemGroup>
+		<Copy SourceFiles="@(NuPkgFiles)" DestinationFolder="$(LocalFeed)" SkipUnchangedFiles="true" Condition="Exists('%(NuPkgFiles.Identity)')" />
+	</Target>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.12" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.11" />
+    <PackageReference Include="Ulid" Version="1.4.1" />
+  </ItemGroup>
+
+</Project>

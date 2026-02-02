@@ -16,9 +16,9 @@ namespace Optera.HRM.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<ServiceResponse<string>>> CreateEmployee(CreateEmployee createEmployee)
+        public async Task<ActionResult<ServiceResponse<string>>> CreateEmployee(CreateEmployee createEmployee, CancellationToken ct = default)
         {
-            var result = await employeeService.CreateEmployee(createEmployee);
+            var result = await employeeService.CreateEmployee(createEmployee, ct);
             if (result.Success)
                 return Ok(result);
             return BadRequest(result);

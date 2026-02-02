@@ -7,6 +7,8 @@ using Optera.HRM.Reopositories;
 using Optera.HRM.Reopositories.Interfaces;
 using Optera.HRM.Services;
 using Optera.HRM.Services.Interfaces;
+using Optera.Shared.Core.Identity;
+using Optera.Shared.Core.Repositories;
 using Optera.Shared.Identity;
 using Optera.Shared.Messaging.Events.Users;
 using System;
@@ -21,6 +23,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<ICurrentUserContext, CurrentUserContext>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork<AppDbContext>>();
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 

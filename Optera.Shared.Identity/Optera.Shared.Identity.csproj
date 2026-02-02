@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>Optera.Shared.Identity</PackageId>
-    <Version>1.1.0</Version>
+    <Version>1.1.1</Version>
     <Authors>Optera</Authors>
     <Company>Optera</Company>
     <Description>Optera identity accessor.</Description>
@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.3.0" />
+    <PackageReference Include="Optera.Shared.Core" Version="1.1.1" />
   </ItemGroup>
 	
   <Target Name="CopyNugetToLocalFeed" AfterTargets="Pack">

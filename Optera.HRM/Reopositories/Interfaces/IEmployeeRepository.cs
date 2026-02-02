@@ -1,5 +1,5 @@
 ﻿using Optera.HRM.Models;
-using Optera.Shared.Interface;
+using Optera.Shared.Core.Repositories;
 
 namespace Optera.HRM.Reopositories.Interfaces
 {

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Optera.Shared.Messaging.Events.Employees
 {
     public record EmployeeCreated(
-        Guid Id,
+        long Id,
         string FirstName,
         string MiddleName,
         string LastName,

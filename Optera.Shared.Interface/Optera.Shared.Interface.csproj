@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>Optera.Shared.Interface</PackageId>
-    <Version>1.1.0</Version>
+    <Version>1.2.0</Version>
     <Authors>Optera</Authors>
     <Company>Optera</Company>
     <Description>Optera interfaces.</Description>
@@ -25,5 +25,9 @@
     </ItemGroup>
     <Copy SourceFiles="@(NuPkgFiles)" DestinationFolder="$(LocalFeed)" SkipUnchangedFiles="true" Condition="Exists('%(NuPkgFiles.Identity)')" />
   </Target>
+	
+  <ItemGroup>
+    <PackageReference Include="Ulid" Version="1.4.1" />
+  </ItemGroup>
 
 </Project>

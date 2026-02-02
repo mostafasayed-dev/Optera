@@ -5,6 +5,6 @@ namespace Optera.HRM.Services.Interfaces
 {
     public interface IEmployeeService
     {
-        public Task<ServiceResponse<GetEmployee>> CreateEmployee(CreateEmployee createEmployee);
+        public Task<ServiceResponse<GetEmployee>> CreateEmployee(CreateEmployee createEmployee, CancellationToken ct = default);
     }
 }

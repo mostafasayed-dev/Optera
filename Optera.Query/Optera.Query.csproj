@@ -13,7 +13,7 @@
     <PackageReference Include="MassTransit.RabbitMQ" Version="8.5.7" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.11" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.10" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.12" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.11">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -23,12 +23,11 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Optera.Shared.Domain" Version="1.0.0" />
-    <PackageReference Include="Optera.Shared.Identity" Version="1.0.0" />
-    <PackageReference Include="Optera.Shared.Interface" Version="1.0.0" />
-    <PackageReference Include="Optera.Shared.Messaging" Version="1.8.0" />
-    <PackageReference Include="Optera.Shared.Pagination" Version="1.2.0" />
-    <PackageReference Include="Optera.Shared.Response" Version="1.2.0" />
+    <PackageReference Include="Optera.Shared.Core" Version="2026.2.4.1" />
+    <PackageReference Include="Optera.Shared.Identity" Version="2026.2.4.1" />
+    <PackageReference Include="Optera.Shared.Messaging" Version="2026.2.4.2" />
+    <PackageReference Include="Optera.Shared.Pagination" Version="2026.2.4.1" />
+    <PackageReference Include="Optera.Shared.Response" Version="2026.2.4.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.6" />
     <PackageReference Include="System.Linq.Dynamic.Core" Version="1.7.1" />
   </ItemGroup>

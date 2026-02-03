@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Optera.Configuration.Models;
-using Optera.Shared.Domain;
+using Optera.Shared.Core.Domain;
 
 namespace Optera.Configuration.Configuration
 {
@@ -18,17 +18,6 @@ namespace Optera.Configuration.Configuration
             builder.Ignore(p => p.Status);
 
             builder.Property(p => p.ItemsPerPage).HasDefaultValue(10);
-
-            builder.HasData(
-                new DataTable { Id = DataTableSeedIds.CountriesList, Name = "countries-list", Title = "Countries" }
-                );
         }
-    }
-
-    public static class DataTableSeedIds
-    {
-        // Home
-        public static readonly Guid CountriesList =
-            new("00000000-0000-0000-0000-000000000001");
     }
 }

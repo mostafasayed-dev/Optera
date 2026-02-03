@@ -1,14 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Optera.Configuration.Models;
-using Optera.Configuration.Repositories.Base;
+﻿using Optera.Configuration.Models;
 using Optera.Configuration.Repositories.Interfaces;
-using System.Collections;
+using Optera.Shared.Core.Identity;
+using Optera.Shared.Core.Repositories;
 
 namespace Optera.Configuration.Repositories
 {
-    public class ComponentFormRepository : BaseRepository<ComponentForm>, IComponentFormRepository
+    public class ComponentFormRepository : BaseRepository<ComponentForm, AppDbContext>, IComponentFormRepository
     {
-        public ComponentFormRepository(AppDbContext appDbContext) : base(appDbContext)
+        public ComponentFormRepository(AppDbContext appDbContext, ICurrentUserContext currentUserContext) : base(appDbContext, currentUserContext)
         {
         }
     }

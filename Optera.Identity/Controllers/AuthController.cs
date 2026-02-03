@@ -76,7 +76,7 @@ namespace Optera.Identity.Controllers
         }
 
         [HttpGet("user/{id}")]
-        public async Task<ActionResult<ServiceResponse<GetUserDto>>> GetUserById(string id)
+        public async Task<ActionResult<ServiceResponse<GetUserDto>>> GetUserById(long id)
         {
             var result = await authService.GetUserById(id);
             if (result.Status == ResponseStatus.SUCCEEDED)

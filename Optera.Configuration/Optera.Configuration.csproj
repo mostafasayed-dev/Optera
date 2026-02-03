@@ -18,11 +18,10 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Optera.Shared.Domain" Version="1.0.0" />
-    <PackageReference Include="Optera.Shared.Identity" Version="1.1.0" />
-    <PackageReference Include="Optera.Shared.Interface" Version="1.1.0" />
-    <PackageReference Include="Optera.Shared.Pagination" Version="1.0.0" />
-    <PackageReference Include="Optera.Shared.Response" Version="1.2.0" />
+    <PackageReference Include="Optera.Shared.Core" Version="2026.2.4.1" />
+    <PackageReference Include="Optera.Shared.Identity" Version="2026.2.4.1" />
+    <PackageReference Include="Optera.Shared.Pagination" Version="2026.2.4.1" />
+    <PackageReference Include="Optera.Shared.Response" Version="2026.2.4.1" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,4 @@
-﻿using Optera.Miscellaneous.Models.Base;
+﻿using Optera.Shared.Core.Domain;
 
 namespace Optera.Miscellaneous.Models
 {

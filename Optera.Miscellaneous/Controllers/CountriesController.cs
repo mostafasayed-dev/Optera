@@ -27,7 +27,7 @@ namespace Optera.Miscellaneous.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<ServiceResponse<GetCountry>>> CreateCountry(Guid id, [FromBody] UpdateCountry updateCountry)
+        public async Task<ActionResult<ServiceResponse<GetCountry>>> CreateCountry(long id, [FromBody] UpdateCountry updateCountry)
         {
             var result = await countryService.UpdateCountry(id, updateCountry);
             if (result.Success)
@@ -49,7 +49,7 @@ namespace Optera.Miscellaneous.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<ServiceResponse<GetCountry>>> GetCountry(Guid id)
+        public async Task<ActionResult<ServiceResponse<GetCountry>>> GetCountry(long id)
         {
             var result = await countryService.GetCountry(id);
             if (result.Success)

@@ -1,5 +1,5 @@
 ﻿using Optera.Miscellaneous.Models;
-using Optera.Shared.Interface;
+using Optera.Shared.Core.Repositories;
 
 namespace Optera.Miscellaneous.Reopositories.Interfaces
 {

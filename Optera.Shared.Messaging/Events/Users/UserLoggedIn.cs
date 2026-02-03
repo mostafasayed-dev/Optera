@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Optera.Shared.Messaging.Events.Users
 {
     public record UserLoggedInEvent(
-        string Id,
+        long Id,
         string UserName,
         string Email,
         DateTime OccurredAt = default!

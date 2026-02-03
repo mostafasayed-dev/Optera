@@ -1,4 +1,4 @@
-﻿using Optera.Shared.Domain;
+﻿using Optera.Shared.Core.Domain;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 

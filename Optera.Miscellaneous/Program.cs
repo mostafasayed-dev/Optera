@@ -7,6 +7,7 @@ using Optera.Miscellaneous.Reopositories;
 using Optera.Miscellaneous.Reopositories.Interfaces;
 using Optera.Miscellaneous.Services;
 using Optera.Miscellaneous.Services.Interfaces;
+using Optera.Shared.Core.Identity;
 using Optera.Shared.Identity;
 using System;
 

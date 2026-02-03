@@ -6,10 +6,12 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Optera.Identity;
 using Optera.Identity.JWT;
+using Optera.Identity.Models;
 using Optera.Identity.Repositories;
 using Optera.Identity.Repositories.Interfaces;
 using Optera.Identity.Services;
 using Optera.Identity.Services.Interfaces;
+using Optera.Shared.Core.Identity;
 using Optera.Shared.Identity;
 using Serilog;
 using Serilog.Formatting.Compact;
@@ -57,8 +59,8 @@ Log.Logger = new LoggerConfiguration()
 builder.Host.UseSerilog();
 
 builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
-builder.Services.AddScoped<IAuthRepository<IdentityUser, IdentityRole>, AuthRepository<IdentityUser, IdentityRole>>();
-builder.Services.AddScoped<IAuthService, AuthService<IdentityUser, IdentityRole>>();
+builder.Services.AddScoped<IAuthRepository<User, Role>, AuthRepository<User, Role>>();
+builder.Services.AddScoped<IAuthService, AuthService<User, Role>>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<ICurrentUserContext, CurrentUserContext>();
@@ -69,7 +71,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
         builder.Configuration.GetConnectionString("DefaultConnection")
     ));
 
-builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
+builder.Services.AddIdentity<User, Role>(options =>
 {
     options.Password.RequireDigit = true;
     options.Password.RequireUppercase = false;
@@ -161,20 +163,20 @@ using (var scope = app.Services.CreateScope())
         // Run Database Migrations
         dbContext.Database.Migrate();
 
-        var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
-        var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+        var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+        var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<Role>>();
         //Create Roles
         var roles = new[] { "Admin" };
         foreach (var role in roles)
         {
             if (!await roleManager.RoleExistsAsync(role))
-                await roleManager.CreateAsync(new IdentityRole(role));
+                await roleManager.CreateAsync(new Role { Name = role });
         }
 
         var admin = await userManager.FindByNameAsync("admin");
         if (admin == null)
         {
-            admin = new IdentityUser
+            admin = new User
             {
                 UserName = "admin",
                 Email = "admin@optera.com",
@@ -188,7 +190,7 @@ using (var scope = app.Services.CreateScope())
                 //User Claims
                 var claims = new[]
                 {
-                    new System.Security.Claims.Claim(JwtRegisteredClaimNames.Sub, admin.Id),
+                    new System.Security.Claims.Claim(JwtRegisteredClaimNames.Sub, admin.Id.ToString()),
                     new System.Security.Claims.Claim(JwtRegisteredClaimNames.UniqueName, admin.UserName),
                     new System.Security.Claims.Claim("permissions", "*"),
                 };

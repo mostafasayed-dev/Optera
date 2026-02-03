@@ -20,7 +20,7 @@ namespace Optera.Query.Consumers
 
             var user = new User
             {
-                Id = Guid.Parse(@event.Id),
+                //Id = @event.Id,
                 UserName = @event.UserName,
                 NormalizedUserName = @event.NormalizedUserName,
                 Email = @event.Email,

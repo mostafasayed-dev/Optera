@@ -1,11 +1,12 @@
 ﻿using MassTransit;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Optera.Identity.Models;
 using System.Reflection;
 
 namespace Optera.Identity
 {
-    public class AppDbContext : IdentityDbContext
+    public class AppDbContext : IdentityDbContext<User, Role, long>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 

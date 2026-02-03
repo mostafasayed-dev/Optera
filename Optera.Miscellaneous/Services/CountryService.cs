@@ -6,6 +6,7 @@ using Optera.Miscellaneous.DTOs.Country;
 using Optera.Miscellaneous.Models;
 using Optera.Miscellaneous.Reopositories.Interfaces;
 using Optera.Miscellaneous.Services.Interfaces;
+using Optera.Shared.Core.Identity;
 using Optera.Shared.Identity;
 using Optera.Shared.Messaging.Events.Employees;
 using Optera.Shared.Messaging.Events.Miscellaneous;
@@ -39,17 +40,17 @@ namespace Optera.Miscellaneous.Services
                 var country = mapper.Map<Country>(createCountry);
                 await countryRepository.AddAsync(country);
 
-                var @event = new CountryCreated(
-                        country.Id,
-                        country.Name,
-                        country.Name_OtherLanguage,
-                        country.ISOCode
-                    )
-                {
-                    Username = currentUserContext.UserName!
-                };
+                //var @event = new CountryCreated(
+                //        country.Id,
+                //        country.Name,
+                //        country.Name_OtherLanguage,
+                //        country.ISOCode
+                //    )
+                //{
+                //    Username = currentUserContext.UserName!
+                //};
 
-                await publishEndpoint.Publish(@event);
+                //await publishEndpoint.Publish(@event);
 
                 var result = await countryRepository.SaveChangesAsync();
                 if (!result)
@@ -80,7 +81,7 @@ namespace Optera.Miscellaneous.Services
             }
         }
 
-        public async Task<ServiceResponse<GetCountry>> GetCountry(Guid id)
+        public async Task<ServiceResponse<GetCountry>> GetCountry(long id)
         {
             try
             {
@@ -97,7 +98,7 @@ namespace Optera.Miscellaneous.Services
             }
         }
 
-        public async Task<ServiceResponse<GetCountry>> UpdateCountry(Guid id, UpdateCountry updateCountry)
+        public async Task<ServiceResponse<GetCountry>> UpdateCountry(long id, UpdateCountry updateCountry)
         {
             try
             {
@@ -109,17 +110,17 @@ namespace Optera.Miscellaneous.Services
                 var result = mapper.Map(updateCountry, country);
                 this.countryRepository.Update(result);
 
-                var @event = new CountryUpdated(
-                    country.Id,
-                    country.Name,
-                    country.Name_OtherLanguage,
-                    country.ISOCode
-                )
-                {
-                    Username = currentUserContext.UserName!
-                };
+                //var @event = new CountryUpdated(
+                //    country.Id,
+                //    country.Name,
+                //    country.Name_OtherLanguage,
+                //    country.ISOCode
+                //)
+                //{
+                //    Username = currentUserContext.UserName!
+                //};
 
-                await publishEndpoint.Publish(@event);
+                //await publishEndpoint.Publish(@event);
 
                 await this.countryRepository.SaveChangesAsync();
 

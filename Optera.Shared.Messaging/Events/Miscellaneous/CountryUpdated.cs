@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Optera.Shared.Messaging.Events.Miscellaneous
 {
     public record CountryUpdated(
-        Guid Id,
+        long Id,
         string Name,
         string? Name_OtherLanguage,
         string? ISOCode

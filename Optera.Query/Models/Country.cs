@@ -1,4 +1,4 @@
-﻿using Optera.Shared.Domain;
+﻿using Optera.Shared.Core.Domain;
 
 namespace Optera.Query.Models
 {

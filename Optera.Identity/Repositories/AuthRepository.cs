@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Optera.Identity.Models;
 using Optera.Identity.Repositories.Interfaces;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -7,8 +8,8 @@ using System.Security.Claims;
 namespace Optera.Identity.Repositories
 {
     public class AuthRepository<TUser, TRole> : IAuthRepository<TUser, TRole>
-            where TUser : IdentityUser, new()
-            where TRole : IdentityRole, new()
+            where TUser : User, new()
+            where TRole : Role, new()
     {
         private readonly UserManager<TUser> userManager;
         private readonly RoleManager<TRole> roleManager;
@@ -52,7 +53,7 @@ namespace Optera.Identity.Repositories
         {
             var claimsToAdd = new[]
             {
-                new Claim(JwtRegisteredClaimNames.Sub, user.Id),
+                new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
                 new Claim(JwtRegisteredClaimNames.UniqueName, user.UserName!),
                 new Claim("permissions", "*")
             };

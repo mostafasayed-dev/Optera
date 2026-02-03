@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>Optera.Shared.Messaging</PackageId>
-    <Version>1.9.1</Version>
+    <Version>2026.02.04.03</Version>
     <Authors>Optera</Authors>
     <Company>Optera</Company>
     <Description>Optera shared messaging contracts for Optera microservices.</Description>

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Optera.Shared.Messaging.Events.Users
 {
     public record UserRegistered(
-        string Id,
+        long Id,
         string UserName,
         string NormalizedUserName,
         string Email,

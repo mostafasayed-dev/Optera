@@ -10,7 +10,7 @@ namespace Optera.Identity.Services.Interfaces
         public Task<ServiceResponse<JwtToken>> Register(RegisterDto registerDto);
         public Task<ServiceResponse<JwtToken>> Login(LoginDto loginDto);
         public Task<ServiceResponse<PagedList<GetUserDto>>> GetUsers(UserParams? userParams);
-        public Task<ServiceResponse<GetUserDto>> GetUserById(string id);
+        public Task<ServiceResponse<GetUserDto>> GetUserById(long id);
         public Task<ServiceResponse<PagedList<GetRoleDto>>> GetRoles(UserParams? userParams);
         public Task<ServiceResponse<List<GetRoleListDto>>> GetRolesItemsList();
         public Task<ServiceResponse<GetRoleDto>> CreateRole(CreateRoleDto createRoleDto);

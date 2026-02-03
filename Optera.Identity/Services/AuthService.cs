@@ -5,8 +5,10 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Optera.Identity.DTOs;
 using Optera.Identity.JWT;
+using Optera.Identity.Models;
 using Optera.Identity.Repositories.Interfaces;
 using Optera.Identity.Services.Interfaces;
+using Optera.Shared.Core.Identity;
 using Optera.Shared.Identity;
 using Optera.Shared.Messaging.Events.Users;
 using Optera.Shared.Pagination.Pagination;
@@ -16,8 +18,8 @@ using System.Security.Claims;
 namespace Optera.Identity.Services
 {
     public class AuthService<TUser, TRole> : IAuthService
-            where TUser : IdentityUser
-            where TRole : IdentityRole
+            where TUser : User
+            where TRole : Role
     {
         private readonly IAuthRepository<TUser, TRole> authRepository;
         private readonly IJwtTokenService jwtTokenService;
@@ -99,8 +101,7 @@ namespace Optera.Identity.Services
                         userResult.User.PhoneNumberConfirmed!
                         )
                 {
-                    Creator = currentUserContext.UserName!,
-                    Updater = currentUserContext.UserName!,
+                    Username = currentUserContext.UserName!
                 };
 
                 await publishEndpoint.Publish(@event);
@@ -185,7 +186,7 @@ namespace Optera.Identity.Services
             }
         }
 
-        public async Task<ServiceResponse<GetUserDto>> GetUserById(string id)
+        public async Task<ServiceResponse<GetUserDto>> GetUserById(long id)
         {
             try
             {

@@ -23,7 +23,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Optera.Shared.Core" Version="2026.2.4.1" />
+    <PackageReference Include="Optera.Shared.Core" Version="2026.2.4.2" />
     <PackageReference Include="Optera.Shared.Identity" Version="2026.2.4.1" />
     <PackageReference Include="Optera.Shared.Messaging" Version="2026.2.4.2" />
     <PackageReference Include="Optera.Shared.Pagination" Version="2026.2.4.1" />

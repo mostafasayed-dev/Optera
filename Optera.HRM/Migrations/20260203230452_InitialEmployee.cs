@@ -28,7 +28,7 @@ namespace Optera.HRM.Migrations
                     Updater = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Status = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false, defaultValue: "Active"),
                     RowVersion = table.Column<byte[]>(type: "rowversion", rowVersion: true, nullable: true),
-                    RowKey = table.Column<byte[]>(type: "varbinary(16)", nullable: false)
+                    RowKey = table.Column<string>(type: "nvarchar(26)", maxLength: 26, nullable: false)
                 },
                 constraints: table =>
                 {

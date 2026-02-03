@@ -8,5 +8,6 @@
         public string? LastName { get; set; }
         public char Gender { get; set; } = 'M';
         public DateTime DateOfBirth { get; set; } = DateTime.Now;
+        public string RowKey { get; set; }
     }
 }

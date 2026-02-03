@@ -12,7 +12,7 @@ using Optera.HRM;
 namespace Optera.HRM.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260202205506_InitialEmployee")]
+    [Migration("20260203230452_InitialEmployee")]
     partial class InitialEmployee
     {
         /// <inheritdoc />
@@ -231,9 +231,10 @@ namespace Optera.HRM.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<byte[]>("RowKey")
+                    b.Property<string>("RowKey")
                         .IsRequired()
-                        .HasColumnType("varbinary(16)");
+                        .HasMaxLength(26)
+                        .HasColumnType("nvarchar(26)");
 
                     b.Property<byte[]>("RowVersion")
                         .IsConcurrencyToken()

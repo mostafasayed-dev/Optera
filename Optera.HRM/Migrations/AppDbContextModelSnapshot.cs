@@ -228,9 +228,10 @@ namespace Optera.HRM.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<byte[]>("RowKey")
+                    b.Property<string>("RowKey")
                         .IsRequired()
-                        .HasColumnType("varbinary(16)");
+                        .HasMaxLength(26)
+                        .HasColumnType("nvarchar(26)");
 
                     b.Property<byte[]>("RowVersion")
                         .IsConcurrencyToken()

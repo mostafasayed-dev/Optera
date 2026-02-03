@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Optera.Shared.Core.Converters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,8 +44,11 @@ namespace Optera.Shared.Core.Domain
                    .ValueGeneratedOnAddOrUpdate();
 
             builder.Property(x => x.RowKey)
-                   .HasConversion<UlidToBytesConverter>()
-                   .HasColumnType("varbinary(16)")
+                   .HasConversion(
+                        ulid => ulid.ToString(),
+                        str => Ulid.Parse(str))
+                   .HasMaxLength(26)
+                   .IsRequired()
                    .ValueGeneratedNever();
 
             builder.HasIndex(x => x.CreatedAt);
